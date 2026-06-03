@@ -11,9 +11,9 @@ if [ -z "$dev_repo" ]; then
   exit 1
 fi
 
-DIST_TARGET="${dev_repo}/front/dist"
+DIST_TARGET="${dev_repo}/"
 
-echo "👀 Watch démarré → $DIST_TARGET"
+echo "Docker démarré → $DIST_TARGET"
 
 # Build en mode watch avec outDir vers le repo docker
-npx vite build --watch --outDir "$DIST_TARGET" --emptyOutDir
+cd "$dev_repo" && docker compose up
