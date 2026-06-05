@@ -16,4 +16,4 @@ DIST_TARGET="${dev_repo}/"
 echo "Docker démarré → $DIST_TARGET"
 
 # Build en mode watch avec outDir vers le repo docker
-cd "$dev_repo" && docker compose up
+cd "$dev_repo" && docker-compose up
