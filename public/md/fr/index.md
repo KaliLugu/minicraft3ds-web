@@ -22,6 +22,7 @@ there 3 Edition of minicraft, one is on 3ds and will stay updated
     bad point:
     - java runtime
     - work only on windows
+    - no new update with more gameplay content
     - mod are difficult to create and there are very few mods available
 
 3. Minicraft3ds
@@ -29,5 +30,3 @@ there 3 Edition of minicraft, one is on 3ds and will stay updated
 # Features
 
 # Gameplay
-
-# Whats comming soon ?

@@ -7,17 +7,20 @@
     "dev": "vite",
     "watch": "bash scripts/watch-front.sh",
     "build": "tsc -b && vite build",
-    "quick": "bash scripts/quick-build.sh",
+    "quick": "bash scripts/quick-start.sh",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "github-markdown-css": "^5.9.0",
+    "markdown-to-jsx": "^9.8.1",
     "react": "^19.2.7",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.7",
     "reactstrap": "^9.2.3",
     "scss": "^0.2.4",
+    "vite-plugin-markdown": "^2.2.0",
     "watch": "^0.13.0"
   },
   "devDependencies": {

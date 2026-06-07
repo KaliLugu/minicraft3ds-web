@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function BasicExample() {
   return (
@@ -12,18 +13,30 @@ function BasicExample() {
           <Nav className="me-auto">
             <Nav.Link href="https://github.com/KaliLugu/Minicraft3DS">github</Nav.Link>
             <Nav.Link href="https://github.com/KaliLugu/Minicraft3DS/releases">Download</Nav.Link>
+            <Nav.Link href="/development">development</Nav.Link>
             <Nav.Link href="#link">Changelog</Nav.Link>
-            {/* <NavDropdown title="docs" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">docs</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+            <NavDropdown title="More" id="basic-nav-dropdown">
+              <NavDropdown.Item href="https://github.com/KaliLugu/Minicraft3DS/tree/master/docs">
+                technical source code documentation
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item href="/roadmap">
+                future of minicraft3ds ?
               </NavDropdown.Item>
-            </NavDropdown> */}
+              <NavDropdown.Item href="/contributing">
+                how to contribute ?
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/mods">
+                mods
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Lang" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#fr">
+                français
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#en">
+                english
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
