@@ -31,29 +31,34 @@ function App() {
   if (loading) return <div>loading... happy pride month</div>;
 
   return (
-    <>
+    <div className="app">
       {navbar()}
-      <section id="center">
-        <div className="hero">
-          <HeroSection title="Minicraft3ds" image='https://www.eurogamer.net/notch-makes-minicraft-in-two-days' ></HeroSection>
-        </div>
-        <div className="markdown-body">
-        <Markdown>
-          {contentmd}
-        </Markdown>
-        <Footer
-          projectName="Minicraft3ds"
-          description="3DS Homebrew port of Notch's ludum dare game 'Minicraft' "
-          license="MIT License"
-          version="v2.0.0"
-          lastRelease="5 Dec 2025"
-        />
-      </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <main>
+        <section id="center">
+          <div className="hero">
+            <HeroSection
+              title="Minicraft3ds"
+              image="https://www.eurogamer.net/notch-makes-minicraft-in-two-days"
+            />
+          </div>
+
+          <div className="centered-container">
+            <Markdown>
+              {contentmd}
+            </Markdown>
+          </div>
+        </section>
+      </main>
+
+      <Footer
+        projectName="Minicraft3ds"
+        description="3DS Homebrew port of Notch's ludum dare game 'Minicraft'"
+        license="MIT License"
+        version="v2.0.0"
+        lastRelease="5 Dec 2025"
+      />
+    </div>
   )
 }
 
