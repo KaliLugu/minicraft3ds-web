@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import navbar from '../layout/navbar'
 import '../styles/app.scss'
 import HeroSection from '../layout/heroSection'
+import { Footer } from '../layout/footer'
 
 const files = import.meta.glob("../../public/md/**/*.md", { query: "?raw", import: "default" });
 
@@ -34,12 +35,19 @@ function App() {
       {navbar()}
       <section id="center">
         <div className="hero">
-          <HeroSection title="Minicraft3ds"></HeroSection>
+          <HeroSection title="Minicraft3ds" image='https://www.eurogamer.net/notch-makes-minicraft-in-two-days' ></HeroSection>
         </div>
         <div className="markdown-body">
         <Markdown>
           {contentmd}
         </Markdown>
+        <Footer
+          projectName="Minicraft3ds"
+          description="3DS Homebrew port of Notch's ludum dare game 'Minicraft' "
+          license="MIT License"
+          version="v2.0.0"
+          lastRelease="5 Dec 2025"
+        />
       </div>
       </section>
 
