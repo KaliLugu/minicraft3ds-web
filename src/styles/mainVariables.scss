@@ -1,8 +1,95 @@
-$primary: #1a1a2e;
-$text-color: #eaeaea;
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
-body {
-  font-family: 'Source Code Pro', monospace;
-  background: $primary;
-  color: $text-color;
+$color-void:         #0f1117;   // fond page
+$color-night:        #14161f;   // navbar, hero, sections sombres
+$color-surface:      #1a1d27;   // cards, panneaux
+$color-surface-alt:  #20232e;   // hover de surface, zebra
+$color-border:       #2a2d3a;   // séparateurs, bordures par défaut
+$color-border-strong:#3a3d4a;   // bordures hover / focus
+
+$color-title:        #d4d8e2;   // h1, éléments forts
+$color-text:         #9da0b0;   // corps de texte
+$color-muted:        #4a4d5e;   // nav inactifs, labels secondaires
+$color-hint:         #2f3240;   // placeholders, très discret
+
+$color-accent:       #7aaa72;   // accent principal actif, titres H2
+$color-accent-dark:  #3d5c36;   // bordures accent, border-left
+$color-accent-bg:    rgba(61, 92, 54, 0.18); // fond badge / highlight
+
+$color-wood:         #7a6a50;   // brun bois
+$color-sand:         #9a8060;   // sable / cuir / warning
+$color-stone:        #607090;   // pierre / bleu-gris
+$color-water:        #506888;   // eau profonde
+
+$color-success:      #7aaa72;   // = $color-accent
+$color-warning:      #9a8060;   // = $color-sand
+$color-danger:       #8b4a4a;   // HP, erreur
+$color-info:         #607090;   // = $color-stone
+
+$font-base:           'Source Code Pro', monospace;
+
+$font-size-xs:        11px;   // labels, metadata
+$font-size-sm:        13px;   // secondaire, nav
+$font-size-md:        14px;   // corps de texte
+$font-size-lg:        17px;   // sous-titres
+$font-size-xl:        22px;   // titres h2
+$font-size-2xl:       32px;   // titres h1
+$font-size-hero:      44px;   // hero uniquement
+
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-bold:    600;
+$font-weight-black:   700;
+
+$line-height-tight:   1.2;
+$line-height-base:    1.7;
+$line-height-loose:   1.9;
+
+$letter-spacing-hero:  3px;
+$letter-spacing-title: 2px;
+$letter-spacing-label: 2px;
+$letter-spacing-nav:   1.5px;
+
+$space-1:  8px;
+$space-2:  16px;
+$space-3:  24px;
+$space-4:  32px;
+$space-5:  40px;
+$space-6:  48px;
+$space-8:  64px;
+
+$border-radius:  0px;   // pixel art = aucun arrondi
+
+$border-thin:    1px solid $color-border;
+$border-medium:  2px solid $color-border;
+$border-accent:  1px solid $color-accent-dark;
+$border-accent-l:2px solid $color-accent-dark;  // border-left d'accentuation
+
+$navbar-height:     56px;
+$navbar-transition: 0.2s ease;
+
+@mixin pixel-shadow($color: $color-accent-dark, $size: 3px) {
+  box-shadow: $size $size 0 $color;
+}
+
+@mixin pixel-text-shadow($color: $color-accent-dark, $size: 2px) {
+  text-shadow: $size $size 0 $color;
+}
+
+@mixin section-label {
+  display:        block;
+  font-size:      $font-size-xs;
+  font-weight:    $font-weight-bold;
+  letter-spacing: $letter-spacing-label;
+  text-transform: uppercase;
+  color:          $color-accent-dark;
+  border-left:    $border-accent-l;
+  padding-left:   $space-1;
+  margin-bottom:  $space-3;
+}
+
+@mixin card {
+  background: $color-surface;
+  border:     $border-thin;
+  padding:    $space-2;
 }
