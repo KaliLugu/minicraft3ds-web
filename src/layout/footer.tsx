@@ -1,6 +1,7 @@
 interface FooterLink {
   label: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   icon: string;
 }
 
@@ -10,20 +11,18 @@ interface FooterProps {
   license?: string;
   version?: string;
   lastRelease?: string;
-  projectLinks?: FooterLink[];
-  communityLinks?: FooterLink[];
+  onChangelog?: () => void;
 }
 
 const defaultProjectLinks: FooterLink[] = [
   { label: "GitHub", href: "https://github.com/KaliLugu/Minicraft3DS", icon: "github" },
-  { label: "Documentation", href: "/docs", icon: "book" },
-  { label: "Changelog", href: "/changelog", icon: "history" },
+  { label: "Documentation", href: "https://github.com/KaliLugu/Minicraft3DS/tree/master/docs", icon: "book" },
 ];
 
 const defaultCommunityLinks: FooterLink[] = [
   { label: "Issues", href: "https://github.com/KaliLugu/Minicraft3DS/issues", icon: "bug" },
   { label: "Contribuer", href: "https://github.com/KaliLugu/Minicraft3DS/blob/main/CONTRIBUTING.md", icon: "git-pull-request" },
-  { label: "Discussions", href: "https://github.com/KaliLugu/Minicraft3DS/discussions", icon: "message-circle" },
+  // { label: "Discussions", href: "https://github.com/KaliLugu/Minicraft3DS/discussions", icon: "message-circle" },
 ];
 
 const icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
@@ -69,6 +68,14 @@ const icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
 
 function FooterLinkItem({ link }: { link: FooterLink }) {
   const Icon = icons[link.icon];
+  if (link.onClick) {
+    return (
+      <button onClick={link.onClick} className="footer-link footer-link--btn">
+        {Icon && <Icon aria-hidden="true" />}
+        {link.label}
+      </button>
+    );
+  }
   return (
     <a href={link.href} className="footer-link">
       {Icon && <Icon aria-hidden="true" />}
@@ -83,9 +90,12 @@ export function Footer({
   license = "PolyForm Noncommercial",
   version = "v2.4.1",
   lastRelease = "il y a 3 jours",
-  projectLinks = defaultProjectLinks,
-  communityLinks = defaultCommunityLinks,
+  onChangelog,
 }: FooterProps) {
+  const projectLinks: FooterLink[] = [
+    ...defaultProjectLinks,
+    { label: "Changelog", onClick: onChangelog, icon: "history" },
+  ];
   const CubeIcon = icons.cube;
 
   return (
@@ -105,7 +115,7 @@ export function Footer({
             <p className="footer-links__heading">Projet</p>
             <div className="footer-links__list">
               {projectLinks.map((link) => (
-                <FooterLinkItem key={link.href} link={link} />
+                <FooterLinkItem key={link.label} link={link} />
               ))}
             </div>
           </div>
@@ -113,8 +123,8 @@ export function Footer({
           <div className="footer-links__group">
             <p className="footer-links__heading">Communauté</p>
             <div className="footer-links__list">
-              {communityLinks.map((link) => (
-                <FooterLinkItem key={link.href} link={link} />
+              {defaultCommunityLinks.map((link) => (
+                <FooterLinkItem key={link.label} link={link} />
               ))}
             </div>
           </div>

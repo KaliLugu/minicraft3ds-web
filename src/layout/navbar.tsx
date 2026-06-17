@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 
 interface DropdownItem {
   label: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
 }
 
 interface DropdownMenuProps {
@@ -37,7 +38,15 @@ function DropdownMenu({ title, items }: DropdownMenuProps) {
       </button>
       {open && (
         <div className="nav-dropdown__menu">
-          {items.map(item => (
+          {items.map(item => item.onClick ? (
+            <button
+              key={item.label}
+              className="dropdown-item"
+              onClick={() => { item.onClick!(); setOpen(false); }}
+            >
+              {item.label}
+            </button>
+          ) : (
             <a
               key={item.href}
               href={item.href}
@@ -53,7 +62,13 @@ function DropdownMenu({ title, items }: DropdownMenuProps) {
   );
 }
 
-function Navbar() {
+interface NavbarProps {
+  onChangelog: () => void;
+  onRoadmap: () => void;
+  onMods: () => void;
+}
+
+function Navbar({ onChangelog, onRoadmap, onMods }: NavbarProps) {
   return (
     <nav className="navbar">
       <div className="container-fluid">
@@ -62,16 +77,17 @@ function Navbar() {
         <ul className="navbar-nav">
           <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS">GitHub</a></li>
           <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS/releases">Download</a></li>
-          <li><a className="nav-link" href="/development">Development</a></li>
-          <li><a className="nav-link" href="#changelog">Changelog</a></li>
+          <li>
+            <button className="nav-link" onClick={onChangelog}>Changelog</button>
+          </li>
           <li>
             <DropdownMenu
               title="More"
               items={[
                 { label: 'Documentation technique', href: 'https://github.com/KaliLugu/Minicraft3DS/tree/master/docs' },
-                { label: 'Futur du projet', href: '/roadmap' },
-                { label: 'Contribuer', href: '/contributing' },
-                { label: 'Mods', href: '/mods' },
+                { label: 'Futur du projet', onClick: onRoadmap },
+                { label: 'Contribuer', href: 'https://github.com/KaliLugu/Minicraft3DS/blob/main/CONTRIBUTING.md' },
+                { label: 'Mods', onClick: onMods },
               ]}
             />
           </li>

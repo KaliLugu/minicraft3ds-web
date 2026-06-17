@@ -110,7 +110,6 @@ ul li::marker { color: $color-accent-dark; }
   top:              0;
   z-index:          100;
 
-  .container,
   .container-fluid {
     height:         100%;
     display:        flex;
@@ -180,6 +179,9 @@ ul li::marker { color: $color-accent-dark; }
   white-space:    nowrap;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-nav;
+  background:     none;
+  border:         none;
+  cursor:         pointer;
 
   &:hover,
   &:focus-visible {
@@ -228,17 +230,22 @@ ul li::marker { color: $color-accent-dark; }
     box-shadow: 3px 3px 0 $color-void;
 
     .dropdown-item {
-      display:        block;
-      font-family:    $font-base;
-      font-size:      $font-size-xs;
-      font-weight:    $font-weight-medium;
-      color:          $color-text;
-      padding:        0.4rem 0.75rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      display:         block;
+      width:           100%;
+      font-family:     $font-base;
+      font-size:       $font-size-xs;
+      font-weight:     $font-weight-medium;
+      color:           $color-text;
+      padding:         0.4rem 0.75rem;
+      letter-spacing:  1px;
+      text-transform:  uppercase;
       text-decoration: none;
-      transition:     background $navbar-transition, color $navbar-transition;
-      white-space:    nowrap;
+      text-align:      left;
+      background:      none;
+      border:          none;
+      cursor:          pointer;
+      transition:      background $navbar-transition, color $navbar-transition;
+      white-space:     nowrap;
 
       &:hover {
         background: rgba(255, 255, 255, 0.04);
@@ -246,6 +253,64 @@ ul li::marker { color: $color-accent-dark; }
       }
     }
   }
+}
+
+.modal-backdrop {
+  position:        fixed;
+  inset:           0;
+  z-index:         500;
+  background:      rgba(15, 17, 23, 0.75);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: $color-surface;
+  border:     $border-thin;
+  width:      100%;
+  max-width:  520px;
+  box-shadow: 4px 4px 0 $color-void;
+  margin:     $space-3;
+}
+
+.modal-header {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         $space-2 $space-3;
+  border-bottom:   1px solid $color-border;
+}
+
+.modal-title {
+  font-size:      $font-size-sm;
+  font-weight:    $font-weight-bold;
+  color:          $color-title;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-label;
+}
+
+.modal-close {
+  background:  none;
+  border:      none;
+  color:       $color-muted;
+  cursor:      pointer;
+  font-size:   $font-size-sm;
+  padding:     0 $space-1;
+  transition:  color $navbar-transition;
+
+  &:hover { color: $color-title; }
+}
+
+.modal-body {
+  padding: $space-4 $space-3;
+}
+
+.modal-empty {
+  color:       $color-muted;
+  font-size:   $font-size-sm;
+  text-align:  center;
+  padding:     $space-4 0;
 }
 
 .navbar-brand:focus-visible,
@@ -407,6 +472,14 @@ ul li::marker { color: $color-accent-dark; }
   transition:  color $navbar-transition;
 
   &:hover { color: $color-title; }
+
+  &--btn {
+    background: none;
+    border:     none;
+    cursor:     pointer;
+    padding:    0;
+    font-family: $font-base;
+  }
 }
 
 .footer-bottom {

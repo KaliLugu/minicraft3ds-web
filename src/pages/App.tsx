@@ -1,12 +1,33 @@
+import { useState } from 'react'
 import Navbar from '../layout/navbar'
+import { Modal } from '../layout/modal'
 import '../styles/app.scss'
 import HeroSection from '../layout/heroSection'
 import { Footer } from '../layout/footer'
 
 function App() {
+  const [changelogOpen, setChangelogOpen] = useState(false);
+  const [roadmapOpen, setRoadmapOpen] = useState(false);
+  const [modsOpen, setModsOpen] = useState(false);
+
   return (
     <div className="app">
-      <Navbar />
+      <Navbar onChangelog={() => setChangelogOpen(true)} onRoadmap={() => setRoadmapOpen(true)} onMods={() => setModsOpen(true)} />
+      {changelogOpen && (
+        <Modal title="Changelog" onClose={() => setChangelogOpen(false)}>
+          <p className="modal-empty">Aucun changelog disponible pour le moment.</p>
+        </Modal>
+      )}
+      {roadmapOpen && (
+        <Modal title="Futur du projet" onClose={() => setRoadmapOpen(false)}>
+          <p className="modal-empty">Aucun contenu disponible pour le moment.</p>
+        </Modal>
+      )}
+      {modsOpen && (
+        <Modal title="Mods" onClose={() => setModsOpen(false)}>
+          <p className="modal-empty">Aucun contenu disponible pour le moment.</p>
+        </Modal>
+      )}
 
       <main>
         <section id="center">
@@ -63,6 +84,7 @@ function App() {
         license="PolyForm Noncommercial"
         version="v2.0.0"
         lastRelease="5 Dec 2025"
+        onChangelog={() => setChangelogOpen(true)}
       />
     </div>
   )
