@@ -1,52 +1,35 @@
-import Markdown from 'markdown-to-jsx'
-import { useState, useEffect } from 'react'
-import navbar from '../layout/navbar'
+import Navbar from '../layout/navbar'
 import '../styles/app.scss'
 import HeroSection from '../layout/heroSection'
 import { Footer } from '../layout/footer'
 
-const files = import.meta.glob("../../public/md/**/*.md", { query: "?raw", import: "default" });
-
 function App() {
-  const [contentmd, setContentmd] = useState<string>('');
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadMarkdown = async () => {
-      const path = `../../public/md/fr/index.md`;
-
-      if (files[path]) {
-        const content = await files[path]() as string;
-        setContentmd(content);
-      } else {
-        setContentmd("404. Markdown file not found.");
-      }
-
-      setLoading(false);
-    };
-
-    loadMarkdown();
-  }, []);
-
-  if (loading) return <div>loading... happy pride month</div>;
-
   return (
     <div className="app">
-      {navbar()}
+      <Navbar />
 
       <main>
         <section id="center">
           <div className="hero">
             <HeroSection
               title="Minicraft3ds"
-              image="https://www.eurogamer.net/notch-makes-minicraft-in-two-days"
+              image="/img/heroBg.jpg"
             />
           </div>
 
           <div className="centered-container">
-            <Markdown>
-              {contentmd}
-            </Markdown>
+            <h1>Minicraft3DS reprend l'essentiel du Minicraft original, mais ajoute</h1>
+            <ul>
+              <li>un vrai mode multijoueur local</li>
+              <li>un inventaire/recipe plus riche</li>
+              <li>des éléments 3DS spécifiques</li>
+            </ul>
+
+            <h2>Différence sur Old 3DS et New ?</h2>
+
+            <h2>Mods ?</h2>
+
+            <h2>Crédit et licence</h2>
           </div>
         </section>
       </main>

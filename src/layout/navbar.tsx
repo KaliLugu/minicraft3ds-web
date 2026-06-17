@@ -1,47 +1,93 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useState, useEffect, useRef } from 'react';
 
-function BasicExample() {
+interface DropdownItem {
+  label: string;
+  href: string;
+}
+
+interface DropdownMenuProps {
+  title: string;
+  items: DropdownItem[];
+}
+
+function DropdownMenu({ title, items }: DropdownMenuProps) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [open]);
+
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">Minicraft3ds</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="https://github.com/KaliLugu/Minicraft3DS">github</Nav.Link>
-            <Nav.Link href="https://github.com/KaliLugu/Minicraft3DS/releases">Download</Nav.Link>
-            <Nav.Link href="/development">development</Nav.Link>
-            <Nav.Link href="#link">Changelog</Nav.Link>
-            <NavDropdown title="More" id="basic-nav-dropdown">
-              <NavDropdown.Item href="https://github.com/KaliLugu/Minicraft3DS/tree/master/docs">
-                technical source code documentation
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/roadmap">
-                future of minicraft3ds ?
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/contributing">
-                how to contribute ?
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/mods">
-                mods
-              </NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Lang" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#fr">
-                français
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#en">
-                english
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className="nav-dropdown" ref={ref}>
+      <button
+        className={`nav-link nav-dropdown__toggle${open ? ' active' : ''}`}
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+      >
+        {title}
+        <span className="nav-dropdown__caret" aria-hidden="true">▾</span>
+      </button>
+      {open && (
+        <div className="nav-dropdown__menu">
+          {items.map(item => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="dropdown-item"
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
-export default BasicExample;
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <div className="container-fluid">
+        <a href="/" className="navbar-brand">Minicraft3ds</a>
+
+        <ul className="navbar-nav">
+          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS">GitHub</a></li>
+          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS/releases">Download</a></li>
+          <li><a className="nav-link" href="/development">Development</a></li>
+          <li><a className="nav-link" href="#changelog">Changelog</a></li>
+          <li>
+            <DropdownMenu
+              title="More"
+              items={[
+                { label: 'Documentation technique', href: 'https://github.com/KaliLugu/Minicraft3DS/tree/master/docs' },
+                { label: 'Futur du projet', href: '/roadmap' },
+                { label: 'Contribuer', href: '/contributing' },
+                { label: 'Mods', href: '/mods' },
+              ]}
+            />
+          </li>
+          <li>
+            <DropdownMenu
+              title="Lang"
+              items={[
+                { label: 'Français', href: '#fr' },
+                { label: 'English', href: '#en' },
+              ]}
+            />
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;

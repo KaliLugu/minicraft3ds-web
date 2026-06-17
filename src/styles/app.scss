@@ -46,6 +46,7 @@ h1 {
   color:          $color-title;
   letter-spacing: $letter-spacing-hero;
   text-transform: uppercase;
+  margin-bottom:  $space-4;
 }
 
 h2 {
@@ -54,6 +55,10 @@ h2 {
   color:          $color-accent;
   letter-spacing: $letter-spacing-title;
   text-transform: uppercase;
+  margin-top:     $space-8;
+  margin-bottom:  $space-3;
+  padding-bottom: $space-1;
+  border-bottom:  1px solid $color-border;
 }
 
 h3 {
@@ -61,6 +66,8 @@ h3 {
   font-weight:    $font-weight-bold;
   color:          $color-title;
   letter-spacing: 1px;
+  margin-top:     $space-4;
+  margin-bottom:  $space-2;
 }
 
 h4 {
@@ -68,13 +75,31 @@ h4 {
   font-weight:    $font-weight-bold;
   color:          $color-text;
   letter-spacing: 1px;
+  margin-top:     $space-3;
+  margin-bottom:  $space-1;
 }
 
 p {
-  font-size:   $font-size-md;
-  color:       $color-text;
-  line-height: $line-height-base;
+  font-size:     $font-size-md;
+  color:         $color-text;
+  line-height:   $line-height-base;
+  margin-bottom: $space-2;
 }
+
+ul, ol {
+  padding-left:  $space-3;
+  margin-bottom: $space-3;
+
+  li {
+    color:       $color-text;
+    font-size:   $font-size-md;
+    line-height: $line-height-loose;
+
+    & + li { margin-top: 4px; }
+  }
+}
+
+ul li::marker { color: $color-accent-dark; }
 
 .text-title   { color: $color-title; }
 .text-primary { color: $color-accent; }
@@ -299,6 +324,61 @@ p {
   }
 }
 
+.nav-dropdown {
+  position: relative;
+
+  &__toggle {
+    background: none;
+    border:     none;
+    cursor:     pointer;
+    display:    flex;
+    align-items: center;
+    gap:        4px;
+  }
+
+  &__caret {
+    font-size:  9px;
+    opacity:    0.5;
+    transition: transform $navbar-transition;
+  }
+
+  &[aria-expanded="true"] &__caret,
+  &__toggle[aria-expanded="true"] &__caret {
+    transform: rotate(180deg);
+  }
+
+  &__menu {
+    position:   absolute;
+    top:        calc(100% + 6px);
+    left:       0;
+    z-index:    200;
+    min-width:  200px;
+    background: $color-surface;
+    border:     $border-thin;
+    padding:    4px;
+    box-shadow: 3px 3px 0 $color-void;
+
+    .dropdown-item {
+      display:        block;
+      font-family:    $font-base;
+      font-size:      $font-size-xs;
+      font-weight:    $font-weight-medium;
+      color:          $color-text;
+      padding:        0.4rem 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition:     background $navbar-transition, color $navbar-transition;
+      white-space:    nowrap;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.04);
+        color:      $color-title;
+      }
+    }
+  }
+}
+
 .dropdown-menu {
   background:    $color-surface;
   border:        $border-thin;
@@ -501,9 +581,179 @@ label {
   border: 0;
 }
 
+.hero-section {
+  position:        relative;
+  width:           100%;
+  min-height:      480px;
+  background-color: $color-night;
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  overflow:         hidden;
+
+  &::before {
+    content:             '';
+    position:            absolute;
+    inset:               0;
+    background-image:    var(--hero-bg);
+    background-size:     cover;
+    background-position: center;
+    background-repeat:   no-repeat;
+    filter:              brightness(1.8) saturate(1.2);
+    image-rendering:     auto;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 320px;
+  }
+}
+
+.hero-overlay {
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 17, 23, 0.3) 0%,
+    rgba(15, 17, 23, 0.65) 100%
+  );
+}
+
+.hero-content {
+  position:   relative;
+  z-index:    1;
+  text-align: center;
+  padding:    $space-8 $space-4;
+}
+
+.hero-title {
+  font-size:      $font-size-hero;
+  letter-spacing: $letter-spacing-hero;
+  text-transform: uppercase;
+  color:          $color-title;
+  margin-bottom:  0;
+  @include pixel-text-shadow($color-void, 3px);
+
+  @media (max-width: 768px) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.hero-subtitle {
+  font-size:   $font-size-lg;
+  color:       $color-text;
+  margin-top:  $space-2;
+  line-height: $line-height-base;
+}
+
 .centered-container {
-  width: 100%;
-  max-width: 1700px;
-  margin: 0 auto;
-  padding: 0 $space-3;
+  width:      100%;
+  max-width:  760px;
+  margin:     0 auto;
+  padding:    $space-8 $space-4;
+
+  @media (max-width: 768px) {
+    padding: $space-5 $space-3;
+  }
+}
+
+.footer {
+  background:  $color-night;
+  border-top:  2px solid $color-border;
+  padding:     $space-6 0 $space-3;
+  margin-top:  $space-8;
+}
+
+.footer-inner {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     flex-start;
+  gap:             $space-4;
+  flex-wrap:       wrap;
+  max-width:       1100px;
+  margin:          0 auto;
+  padding:         0 $space-4;
+  padding-bottom:  $space-4;
+  border-bottom:   1px solid $color-border;
+}
+
+.footer-brand {
+  display:        flex;
+  flex-direction: column;
+  gap:            $space-1;
+
+  &__name {
+    display:     flex;
+    align-items: center;
+    gap:         $space-1;
+    font-size:   $font-size-sm;
+    font-weight: $font-weight-bold;
+    color:       $color-title;
+  }
+
+  &__desc {
+    font-size: $font-size-sm;
+    color:     $color-text;
+  }
+
+  &__license {
+    display:      inline-block;
+    align-self:   flex-start;
+    font-size:    $font-size-xs;
+    color:        $color-accent;
+    border:       1px solid $color-accent-dark;
+    padding:      2px $space-1;
+    margin-top:   4px;
+  }
+}
+
+.footer-links {
+  display:  flex;
+  gap:      $space-6;
+  flex-wrap: wrap;
+
+  &__group { display: flex; flex-direction: column; gap: $space-1; }
+
+  &__heading {
+    font-size:      $font-size-xs;
+    font-weight:    $font-weight-bold;
+    color:          $color-title;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-label;
+    margin-bottom:  $space-1;
+  }
+
+  &__list { display: flex; flex-direction: column; gap: $space-1; }
+}
+
+.footer-link {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+  font-size:   $font-size-sm;
+  color:       $color-text;
+  transition:  color $navbar-transition;
+
+  &:hover { color: $color-title; }
+}
+
+.footer-bottom {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  flex-wrap:       wrap;
+  gap:             $space-1;
+  max-width:       1100px;
+  margin:          0 auto;
+  padding:         $space-3 $space-4 0;
+  font-size:       $font-size-xs;
+  color:           $color-text;
+}
+
+.app main {
+  min-height: calc(100vh - $navbar-height);
+}
+
+#center {
+  display:        flex;
+  flex-direction: column;
 }

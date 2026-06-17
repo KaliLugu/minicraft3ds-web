@@ -18,9 +18,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   image,
 }) => {
   return (
-    <section className="hero-section">
+    <section
+      className="hero-section"
+      style={image ? { ['--hero-bg' as string]: `url(${image})` } : undefined}
+    >
+      <div className="hero-overlay" />
       <div className="hero-content">
-        <h1>{title}</h1>
+        <h1 className="hero-title">{title}</h1>
         {subtitle && <p className="hero-subtitle">{subtitle}</p>}
         {ctaText && ctaLink && (
           <Button variant="primary" onClick={() => (window.location.href = ctaLink)}>
@@ -28,11 +32,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </Button>
         )}
       </div>
-      {image && (
-        <div className="hero-image-wrapper">
-          <img src={image} alt="hero" className="hero-image" />
-        </div>
-      )}
     </section>
   );
 };

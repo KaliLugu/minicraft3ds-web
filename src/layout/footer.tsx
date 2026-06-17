@@ -15,15 +15,15 @@ interface FooterProps {
 }
 
 const defaultProjectLinks: FooterLink[] = [
-  { label: "GitHub", href: "https://github.com/your/repo", icon: "github" },
+  { label: "GitHub", href: "https://github.com/KaliLugu/Minicraft3DS", icon: "github" },
   { label: "Documentation", href: "/docs", icon: "book" },
   { label: "Changelog", href: "/changelog", icon: "history" },
 ];
 
 const defaultCommunityLinks: FooterLink[] = [
-  { label: "Issues", href: "https://github.com/your/repo/issues", icon: "bug" },
-  { label: "Contribuer", href: "https://github.com/your/repo/blob/main/CONTRIBUTING.md", icon: "git-pull-request" },
-  { label: "Discussions", href: "https://github.com/your/repo/discussions", icon: "message-circle" },
+  { label: "Issues", href: "https://github.com/KaliLugu/Minicraft3DS/issues", icon: "bug" },
+  { label: "Contribuer", href: "https://github.com/KaliLugu/Minicraft3DS/blob/main/CONTRIBUTING.md", icon: "git-pull-request" },
+  { label: "Discussions", href: "https://github.com/KaliLugu/Minicraft3DS/discussions", icon: "message-circle" },
 ];
 
 const icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
@@ -70,20 +70,7 @@ const icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
 function FooterLinkItem({ link }: { link: FooterLink }) {
   const Icon = icons[link.icon];
   return (
-    <a
-      href={link.href}
-      style={{
-        color: "var(--color-text-secondary)",
-        textDecoration: "none",
-        display: "flex",
-        alignItems: "center",
-        gap: "6px",
-        fontSize: "13px",
-        transition: "color 0.15s",
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text-primary)")}
-      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
-    >
+    <a href={link.href} className="footer-link">
       {Icon && <Icon aria-hidden="true" />}
       {link.label}
     </a>
@@ -102,92 +89,30 @@ export function Footer({
   const CubeIcon = icons.cube;
 
   return (
-    <footer
-      style={{
-        borderTop: "0.5px solid var(--color-border-tertiary)",
-        padding: "2rem 0 1.5rem",
-        fontSize: "13px",
-        color: "var(--color-text-secondary)",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          gap: "2rem",
-          flexWrap: "wrap",
-          marginBottom: "1.5rem",
-        }}
-      >
-        {/* Brand */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-          <div
-            style={{
-              fontSize: "15px",
-              fontWeight: 500,
-              color: "var(--color-text-primary)",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
+    <footer className="footer">
+      <div className="footer-inner">
+        <div className="footer-brand">
+          <div className="footer-brand__name">
             <CubeIcon aria-hidden="true" />
             {projectName}
           </div>
-          <span>{description}</span>
-          <span
-            style={{
-              display: "inline-flex",
-              alignSelf: "flex-start",
-              background: "var(--color-background-secondary)",
-              border: "0.5px solid var(--color-border-tertiary)",
-              borderRadius: "var(--border-radius-md)",
-              padding: "2px 8px",
-              fontSize: "11px",
-              color: "var(--color-text-secondary)",
-            }}
-          >
-            {license}
-          </span>
+          <span className="footer-brand__desc">{description}</span>
+          <span className="footer-brand__license">{license}</span>
         </div>
 
-        {/* Links */}
-        <div style={{ display: "flex", gap: "3rem", flexWrap: "wrap" }}>
-          <div>
-            <p
-              style={{
-                fontWeight: 500,
-                color: "var(--color-text-primary)",
-                margin: "0 0 10px",
-                fontSize: "12px",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-              }}
-            >
-              Projet
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        <div className="footer-links">
+          <div className="footer-links__group">
+            <p className="footer-links__heading">Projet</p>
+            <div className="footer-links__list">
               {projectLinks.map((link) => (
                 <FooterLinkItem key={link.href} link={link} />
               ))}
             </div>
           </div>
 
-          <div>
-            <p
-              style={{
-                fontWeight: 500,
-                color: "var(--color-text-primary)",
-                margin: "0 0 10px",
-                fontSize: "12px",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-              }}
-            >
-              Communauté
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          <div className="footer-links__group">
+            <p className="footer-links__heading">Communauté</p>
+            <div className="footer-links__list">
               {communityLinks.map((link) => (
                 <FooterLinkItem key={link.href} link={link} />
               ))}
@@ -196,24 +121,10 @@ export function Footer({
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: "8px",
-          borderTop: "0.5px solid var(--color-border-tertiary)",
-          paddingTop: "1rem",
-        }}
-      >
-        <span>Fait avec ♥ par les contributeurs</span>
+      <div className="footer-bottom">
+        <span>Fait avec ♥ en Open source</span>
         {version && (
-          <span>
-            {version}
-            {lastRelease && ` · Dernière release ${lastRelease}`}
-          </span>
+          <span>{version}{lastRelease && ` · ${lastRelease}`}</span>
         )}
       </div>
     </footer>
