@@ -80,7 +80,7 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
 export function Footer({
   projectName = "MonProjet",
   description = "Un outil open source pour faire X.",
-  license = "MIT License",
+  license = "PolyForm Noncommercial",
   version = "v2.4.1",
   lastRelease = "il y a 3 jours",
   projectLinks = defaultProjectLinks,
