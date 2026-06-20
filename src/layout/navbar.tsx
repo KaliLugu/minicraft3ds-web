@@ -69,25 +69,38 @@ interface NavbarProps {
 }
 
 function Navbar({ onChangelog, onRoadmap, onMods }: NavbarProps) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const close = () => setMobileOpen(false);
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar${mobileOpen ? ' navbar--open' : ''}`}>
       <div className="container-fluid">
         <a href="/" className="navbar-brand">Minicraft3ds</a>
 
+        <button
+          className="navbar-hamburger"
+          aria-label="Menu"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen(o => !o)}
+        >
+          <span /><span /><span />
+        </button>
+
         <ul className="navbar-nav">
-          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS">GitHub</a></li>
-          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS/releases">Download</a></li>
+          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS" onClick={close}>GitHub</a></li>
+          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS/releases" onClick={close}>Download</a></li>
           <li>
-            <button className="nav-link" onClick={onChangelog}>Changelog</button>
+            <button className="nav-link" onClick={() => { onChangelog(); close(); }}>Changelog</button>
           </li>
           <li>
             <DropdownMenu
               title="More"
               items={[
                 { label: 'Documentation technique', href: 'https://github.com/KaliLugu/Minicraft3DS/tree/master/docs' },
-                { label: 'Futur du projet', onClick: onRoadmap },
+                { label: 'Futur du projet', onClick: () => { onRoadmap(); close(); } },
                 { label: 'Contribuer', href: 'https://github.com/KaliLugu/Minicraft3DS/blob/main/CONTRIBUTING.md' },
-                { label: 'Mods', onClick: onMods },
+                { label: 'Mods', onClick: () => { onMods(); close(); } },
               ]}
             />
           </li>
