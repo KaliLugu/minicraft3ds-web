@@ -50,3 +50,9 @@ npm run watch
 ```shell
 npm run dev
 ```
+
+## deployment
+
+```shell
+npm run deploy
+```
