@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 interface FooterLink {
   label: string;
   href?: string;
@@ -13,17 +15,6 @@ interface FooterProps {
   lastRelease?: string;
   onChangelog?: () => void;
 }
-
-const defaultProjectLinks: FooterLink[] = [
-  { label: "GitHub", href: "https://github.com/KaliLugu/Minicraft3DS", icon: "github" },
-  { label: "Documentation", href: "https://github.com/KaliLugu/Minicraft3DS/tree/master/docs", icon: "book" },
-];
-
-const defaultCommunityLinks: FooterLink[] = [
-  { label: "Issues", href: "https://github.com/KaliLugu/Minicraft3DS/issues", icon: "bug" },
-  { label: "Contribuer", href: "https://github.com/KaliLugu/Minicraft3DS/blob/main/CONTRIBUTING.md", icon: "git-pull-request" },
-  // { label: "Discussions", href: "https://github.com/KaliLugu/Minicraft3DS/discussions", icon: "message-circle" },
-];
 
 const icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
   cube: (props) => (
@@ -92,10 +83,19 @@ export function Footer({
   lastRelease = "il y a 3 jours",
   onChangelog,
 }: FooterProps) {
+  const { t } = useTranslation();
+
   const projectLinks: FooterLink[] = [
-    ...defaultProjectLinks,
-    { label: "Changelog", onClick: onChangelog, icon: "history" },
+    { label: "GitHub", href: "https://github.com/KaliLugu/Minicraft3DS", icon: "github" },
+    { label: t('footer.documentation'), href: "https://github.com/KaliLugu/Minicraft3DS/tree/master/docs", icon: "book" },
+    { label: t('footer.changelog'), onClick: onChangelog, icon: "history" },
   ];
+
+  const communityLinks: FooterLink[] = [
+    { label: t('footer.issues'), href: "https://github.com/KaliLugu/Minicraft3DS/issues", icon: "bug" },
+    { label: t('footer.contribute'), href: "https://github.com/KaliLugu/Minicraft3DS/blob/main/CONTRIBUTING.md", icon: "git-pull-request" },
+  ];
+
   const CubeIcon = icons.cube;
 
   return (
@@ -112,7 +112,7 @@ export function Footer({
 
         <div className="footer-links">
           <div className="footer-links__group">
-            <p className="footer-links__heading">Projet</p>
+            <p className="footer-links__heading">{t('footer.project')}</p>
             <div className="footer-links__list">
               {projectLinks.map((link) => (
                 <FooterLinkItem key={link.label} link={link} />
@@ -121,9 +121,9 @@ export function Footer({
           </div>
 
           <div className="footer-links__group">
-            <p className="footer-links__heading">Communauté</p>
+            <p className="footer-links__heading">{t('footer.community')}</p>
             <div className="footer-links__list">
-              {defaultCommunityLinks.map((link) => (
+              {communityLinks.map((link) => (
                 <FooterLinkItem key={link.label} link={link} />
               ))}
             </div>
@@ -132,7 +132,7 @@ export function Footer({
       </div>
 
       <div className="footer-bottom">
-        <span>Fait avec ♥ en Open source</span>
+        <span>{t('footer.madeWith')}</span>
         {version && (
           <span>{version}{lastRelease && ` · ${lastRelease}`}</span>
         )}
