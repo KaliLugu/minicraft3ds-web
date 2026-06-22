@@ -2,11 +2,19 @@
   "navbar": {
     "changelog": "Changelog",
     "roadmap": "Roadmap",
-    "mods": "Mods"
+    "mods": "Mods",
+    "github": "GitHub",
+    "download": "Download",
+    "more": "More",
+    "lang": "Lang",
+    "menu": "Menu",
+    "technicalDocs": "Technical documentation",
+    "contribute": "Contribute"
   },
   "modal": {
     "changelogEmpty": "No changelog available yet.",
-    "empty": "No content available yet."
+    "empty": "No content available yet.",
+    "close": "Close"
   },
   "hero": {
     "title": "Minicraft3ds"
@@ -35,6 +43,13 @@
   },
   "footer": {
     "description": "3DS Homebrew port of Notch's ludum dare game 'Minicraft'",
-    "license": "PolyForm Noncommercial"
+    "license": "PolyForm Noncommercial",
+    "project": "Project",
+    "community": "Community",
+    "madeWith": "Made with ♥ in Open source",
+    "documentation": "Documentation",
+    "contribute": "Contribute",
+    "issues": "Issues",
+    "changelog": "Changelog"
   }
 }

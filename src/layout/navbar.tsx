@@ -70,32 +70,44 @@ interface NavbarProps {
 }
 
 function Navbar({ onChangelog, onRoadmap, onMods }: NavbarProps) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const close = () => setMobileOpen(false);
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar${mobileOpen ? ' navbar--open' : ''}`}>
       <div className="container-fluid">
         <a href="/" className="navbar-brand">Minicraft3ds</a>
 
+        <button
+          className="navbar-hamburger"
+          aria-label={t('navbar.menu')}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen(o => !o)}
+        >
+          <span /><span /><span />
+        </button>
+
         <ul className="navbar-nav">
-          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS">GitHub</a></li>
-          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS/releases">Download</a></li>
+          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS" onClick={close}>{t('navbar.github')}</a></li>
+          <li><a className="nav-link" href="https://github.com/KaliLugu/Minicraft3DS/releases" onClick={close}>{t('navbar.download')}</a></li>
           <li>
-            <button className="nav-link" onClick={onChangelog}>Changelog</button>
+            <button className="nav-link" onClick={() => { onChangelog(); close(); }}>{t('navbar.changelog')}</button>
           </li>
           <li>
             <DropdownMenu
-              title="More"
+              title={t('navbar.more')}
               items={[
-                { label: 'Documentation technique', href: 'https://github.com/KaliLugu/Minicraft3DS/tree/master/docs' },
-                { label: 'Futur du projet', onClick: onRoadmap },
-                { label: 'Contribuer', href: 'https://github.com/KaliLugu/Minicraft3DS/blob/main/CONTRIBUTING.md' },
-                { label: 'Mods', onClick: onMods },
+                { label: t('navbar.technicalDocs'), href: 'https://github.com/KaliLugu/Minicraft3DS/tree/master/docs' },
+                { label: t('navbar.roadmap'), onClick: () => { onRoadmap(); close(); } },
+                { label: t('navbar.contribute'), href: 'https://github.com/KaliLugu/Minicraft3DS/blob/main/CONTRIBUTING.md' },
+                { label: t('navbar.mods'), onClick: () => { onMods(); close(); } },
               ]}
             />
           </li>
           <li>
             <DropdownMenu
-              title="Lang"
+              title={t('navbar.lang')}
               items={[
                 { label: 'Français', onClick: () => i18n.changeLanguage('fr') },
                 { label: 'English', onClick: () => i18n.changeLanguage('en') },
