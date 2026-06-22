@@ -1,0 +1,40 @@
+{
+  "navbar": {
+    "changelog": "Changelog",
+    "roadmap": "Futur du projet",
+    "mods": "Mods"
+  },
+  "modal": {
+    "changelogEmpty": "Aucun changelog disponible pour le moment.",
+    "empty": "Aucun contenu disponible pour le moment."
+  },
+  "hero": {
+    "title": "Minicraft3ds"
+  },
+  "home": {
+    "intro": {
+      "title": "Minicraft3DS reprend l'essentiel du Minicraft original, mais ajoute",
+      "multiplayer": "un vrai mode multijoueur local",
+      "inventory": "un inventaire/recipe plus riche",
+      "features3ds": "des éléments 3DS spécifiques"
+    },
+    "differences": {
+      "title": "Différence sur Old 3DS et New ?",
+      "description": "L'expérience de jeu est identique sur les deux modèles — même contenu, mêmes items, mêmes ajouts. La New 3DS débloque simplement quelques fonctionnalités supplémentaires liées au matériel :",
+      "zlzr": "<strong>Boutons ZL et ZR</strong> — utilisables et rebindables (par défaut : ZR = attaquer, ZL = menu)",
+      "cstick": "<strong>C-Stick</strong> — les 4 directions sont reconnues comme inputs",
+      "speedup": "<strong>Option \"N3DS Speedup\" dans les settings</strong> — passe le CPU de 268 MHz à 804 MHz"
+    },
+    "credits": {
+      "title": "Crédit et licence",
+      "original": "Minicraft est un jeu original créé par <strong>Notch</strong> (Markus Persson) lors du Ludum Dare 22 en 2011.",
+      "davidsm64": "<strong><david>DavidSM64</david></strong> a réécrit le jeu pour la 3DS en homebrew. Son travail a ensuite été forké par <strong><andre>andre111</andre></strong> qui y a apporté des améliorations, mais ce fork n'est aujourd'hui plus maintenu.",
+      "fork": "Ce projet est un fork de celui d'andre111, repris pour être mis à jour et enrichi.",
+      "disclaimer": "Ce projet n'est pas officiel et n'est pas affilié à Notch. Minicraft reste la propriété intellectuelle de Notch, bien qu'aucune licence n'ait été attribuée au jeu original. Le code propre à ce fork — tout ce qui ne provient pas du jeu original — est entièrement libre : modification, fork et réutilisation sont les bienvenus."
+    }
+  },
+  "footer": {
+    "description": "3DS Homebrew port of Notch's ludum dare game 'Minicraft'",
+    "license": "PolyForm Noncommercial"
+  }
+}

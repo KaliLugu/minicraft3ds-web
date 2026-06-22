@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface DropdownItem {
   label: string;
@@ -69,6 +70,7 @@ interface NavbarProps {
 }
 
 function Navbar({ onChangelog, onRoadmap, onMods }: NavbarProps) {
+  const { i18n } = useTranslation();
   return (
     <nav className="navbar">
       <div className="container-fluid">
@@ -95,8 +97,8 @@ function Navbar({ onChangelog, onRoadmap, onMods }: NavbarProps) {
             <DropdownMenu
               title="Lang"
               items={[
-                { label: 'Français', href: '#fr' },
-                { label: 'English', href: '#en' },
+                { label: 'Français', onClick: () => i18n.changeLanguage('fr') },
+                { label: 'English', onClick: () => i18n.changeLanguage('en') },
               ]}
             />
           </li>

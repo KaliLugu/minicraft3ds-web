@@ -1,0 +1,40 @@
+{
+  "navbar": {
+    "changelog": "Changelog",
+    "roadmap": "Roadmap",
+    "mods": "Mods"
+  },
+  "modal": {
+    "changelogEmpty": "No changelog available yet.",
+    "empty": "No content available yet."
+  },
+  "hero": {
+    "title": "Minicraft3ds"
+  },
+  "home": {
+    "intro": {
+      "title": "Minicraft3DS keeps the essentials of the original Minicraft, but adds",
+      "multiplayer": "a real local multiplayer mode",
+      "inventory": "a richer inventory/recipe system",
+      "features3ds": "3DS-specific features"
+    },
+    "differences": {
+      "title": "Difference between Old and New 3DS?",
+      "description": "The gameplay experience is identical on both models — same content, same items, same additions. The New 3DS simply unlocks a few extra hardware-related features:",
+      "zlzr": "<strong>ZL and ZR buttons</strong> — usable and rebindable (default: ZR = attack, ZL = menu)",
+      "cstick": "<strong>C-Stick</strong> — all 4 directions are recognized as inputs",
+      "speedup": "<strong>\"N3DS Speedup\" option in settings</strong> — boosts the CPU from 268 MHz to 804 MHz"
+    },
+    "credits": {
+      "title": "Credits and license",
+      "original": "Minicraft is an original game created by <strong>Notch</strong> (Markus Persson) during Ludum Dare 22 in 2011.",
+      "davidsm64": "<strong><david>DavidSM64</david></strong> rewrote the game for the 3DS as homebrew. His work was later forked by <strong><andre>andre111</andre></strong>, who added improvements, but this fork is no longer maintained today.",
+      "fork": "This project is a fork of andre111's, revived to be updated and expanded.",
+      "disclaimer": "This project is unofficial and not affiliated with Notch. Minicraft remains the intellectual property of Notch, although no license was ever attributed to the original game. The code specific to this fork — everything that doesn't come from the original game — is entirely free: modifying, forking, and reusing it is welcome."
+    }
+  },
+  "footer": {
+    "description": "3DS Homebrew port of Notch's ludum dare game 'Minicraft'",
+    "license": "PolyForm Noncommercial"
+  }
+}
