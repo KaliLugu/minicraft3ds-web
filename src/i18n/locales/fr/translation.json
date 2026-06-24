@@ -24,7 +24,33 @@
       "title": "Minicraft3DS reprend l'essentiel du Minicraft original, mais ajoute",
       "multiplayer": "un vrai mode multijoueur local",
       "inventory": "un inventaire/recipe plus riche",
-      "features3ds": "des éléments 3DS spécifiques"
+      "features3ds": "des éléments 3DS spécifiques",
+      "ambiance": "des éléments d'ambiance absents du jeu original",
+      "economy": "une économie vivante avec des PNJ",
+      "newItems": "de nouveaux items et recettes de craft"
+    },
+    "additions": {
+      "title": "Ajouts exclusifs à ce portage",
+      "ambiance": {
+        "title": "Ambiance & environnement",
+        "description": "Le monde s'anime désormais autour du joueur : effets sonores environnementaux, particules, et une atmosphère qui évolue selon le moment de la journée et la saison."
+      },
+      "daynight": {
+        "title": "Cycle jour/nuit et saisons",
+        "description": "Le temps s'écoule en temps réel. Le jour laisse place à la nuit — plus dangereuse, plus sombre — puis aux quatre saisons qui modifient la faune, la flore et les ressources disponibles. Préparez-vous en conséquence."
+      },
+      "fog": {
+        "title": "Carte à brouillard de guerre",
+        "description": "Le monde est couvert d'un brouillard au démarrage. Chaque zone explorée se révèle définitivement sur la minimap, vous permettant de cartographier votre aventure au fil de vos déplacements."
+      },
+      "economy": {
+        "title": "Économie et PNJ",
+        "description": "Des personnages non-joueurs peuplent le monde : marchands, artisans, habitants. Échangez des ressources, achetez des objets rares et complétez des quêtes pour gagner de la monnaie et débloquer de nouvelles possibilités."
+      },
+      "items": {
+        "title": "Nouveaux items et recettes",
+        "description": "Des dizaines d'objets inédits enrichissent l'inventaire : matériaux rares, équipements spéciaux, consommables et outils avancés. Chacun s'obtient via de nouvelles recettes de craft ou auprès des PNJ."
+      }
     },
     "differences": {
       "title": "Différence sur Old 3DS et New ?",

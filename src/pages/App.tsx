@@ -45,7 +45,27 @@ function App() {
               <li>{t('home.intro.multiplayer')}</li>
               <li>{t('home.intro.inventory')}</li>
               <li>{t('home.intro.features3ds')}</li>
+              <li>{t('home.intro.ambiance')}</li>
+              <li>{t('home.intro.economy')}</li>
+              <li>{t('home.intro.newItems')}</li>
             </ul>
+
+            <h2>{t('home.additions.title')}</h2>
+
+            <h3>{t('home.additions.ambiance.title')}</h3>
+            <p>{t('home.additions.ambiance.description')}</p>
+
+            <h3>{t('home.additions.daynight.title')}</h3>
+            <p>{t('home.additions.daynight.description')}</p>
+
+            <h3>{t('home.additions.fog.title')}</h3>
+            <p>{t('home.additions.fog.description')}</p>
+
+            <h3>{t('home.additions.economy.title')}</h3>
+            <p>{t('home.additions.economy.description')}</p>
+
+            <h3>{t('home.additions.items.title')}</h3>
+            <p>{t('home.additions.items.description')}</p>
 
             <h2>{t('home.differences.title')}</h2>
             <p>{t('home.differences.description')}</p>

@@ -24,7 +24,33 @@
       "title": "Minicraft3DS keeps the essentials of the original Minicraft, but adds",
       "multiplayer": "a real local multiplayer mode",
       "inventory": "a richer inventory/recipe system",
-      "features3ds": "3DS-specific features"
+      "features3ds": "3DS-specific features",
+      "ambiance": "atmosphere elements absent from the original game",
+      "economy": "a living economy with NPCs",
+      "newItems": "new items and crafting recipes"
+    },
+    "additions": {
+      "title": "Exclusive additions to this port",
+      "ambiance": {
+        "title": "Ambiance & environment",
+        "description": "The world now comes alive around the player: ambient sound effects, particles, and an atmosphere that shifts with the time of day and the season."
+      },
+      "daynight": {
+        "title": "Day/night cycle and seasons",
+        "description": "Time flows in real time. Day gives way to night — darker and more dangerous — then to four seasons that alter the fauna, flora, and available resources. Plan accordingly."
+      },
+      "fog": {
+        "title": "Fog-of-war map",
+        "description": "The world starts covered in fog. Every area you explore is permanently revealed on the minimap, letting you chart your adventure as you roam."
+      },
+      "economy": {
+        "title": "Economy and NPCs",
+        "description": "Non-player characters populate the world: merchants, craftsmen, villagers. Trade resources, buy rare items, and complete quests to earn currency and unlock new opportunities."
+      },
+      "items": {
+        "title": "New items and recipes",
+        "description": "Dozens of new objects enrich the inventory: rare materials, special equipment, consumables, and advanced tools. Each is obtained through new crafting recipes or from NPCs."
+      }
     },
     "differences": {
       "title": "Difference between Old and New 3DS?",
