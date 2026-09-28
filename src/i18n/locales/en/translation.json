@@ -11,6 +11,19 @@
     "technicalDocs": "Technical documentation",
     "contribute": "Contribute"
   },
+  "changelog": {
+    "UserChange": "User-facing changes",
+    "itemPaper":"Add papers to craft Scrolls",
+    "itemBed":"Adding a bed to skip nights",
+    "itemScrolls":"Add scrolls that allow players to apply effects",
+    "devChange": "Developer-facing changes",
+    "itemRefactor": "Item system refactor: separated definitions (ItemsTypes) from data/logic (ItemsData)",
+    "versionning": "Save file versioning: added version writing and checking in save files",
+    "network": "Networking layer: added miniCurl for network requests",
+    "JSONparsing": "JSON parsing: integrated cJSON",
+    "CICD": "added 3dsx build via github Action",
+    "ssl": "added fetch-ssl.sh to fetch SSL certificates"
+  },
   "modal": {
     "changelogEmpty": "No changelog available yet.",
     "empty": "No content available yet.",

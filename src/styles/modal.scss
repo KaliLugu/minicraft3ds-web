@@ -1,0 +1,67 @@
+@use 'mainVariables' as *;
+
+.modal-backdrop {
+  position:        fixed;
+  inset:           0;
+  z-index:         500;
+  background:      rgba(15, 17, 23, 0.75);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: $color-surface;
+  border:     $border-thin;
+  width:      100%;
+  max-width:  520px;
+  box-shadow: 4px 4px 0 $color-void;
+  margin:     $space-3;
+  h2 {
+    text-align: center;
+    margin-top: auto;
+  }
+}
+
+.modal-header {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         $space-2 $space-3;
+  border-bottom:   1px solid $color-border;
+}
+
+.modal-title {
+  font-size:      $font-size-sm;
+  font-weight:    $font-weight-bold;
+  color:          $color-title;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-label;
+}
+
+.modal-close {
+  background:  none;
+  border:      none;
+  color:       $color-muted;
+  cursor:      pointer;
+  font-size:   $font-size-sm;
+  padding:     0 $space-1;
+  transition:  color $navbar-transition;
+
+  &:hover { color: $color-title; }
+}
+
+.modal-body {
+  padding: $space-4 $space-3;
+}
+
+.modal-empty {
+  color:       $color-muted;
+  font-size:   $font-size-sm;
+  text-align:  center;
+  padding:     $space-4 0;
+}
+
+.modal-changelog {
+  font-size:   $font-size-sm;
+}

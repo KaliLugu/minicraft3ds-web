@@ -11,6 +11,19 @@
     "technicalDocs": "Documentation technique",
     "contribute": "Contribuer"
   },
+    "changelog": {
+    "UserChange": "Changements côté joueur",
+    "itemPaper": "Ajout du papier pour fabriquer des parchemins",
+    "itemBed": "Ajout d'un lit pour passer la nuit",
+    "itemScrolls": "Ajout de parchemins permettant aux joueurs d'appliquer des effets",
+    "devChange": "Changements côté développeur",
+    "itemRefactor": "Refonte du système d'objets : séparation des définitions (ItemsTypes) des données/logique (ItemsData)",
+    "versionning": "Versionnage des fichiers de sauvegarde : ajout de l'écriture et de la vérification de la version dans les fichiers de sauvegarde",
+    "network": "Couche réseau : ajout de miniCurl pour les requêtes réseau",
+    "JSONparsing": "Analyse JSON : intégration de cJSON",
+    "CICD": "Ajout de la compilation 3dsx via GitHub Action",
+    "ssl": "Ajout de fetch-ssl.sh pour récupérer les certificats SSL"
+  },
   "modal": {
     "changelogEmpty": "Aucun changelog disponible pour le moment.",
     "empty": "Aucun contenu disponible pour le moment.",

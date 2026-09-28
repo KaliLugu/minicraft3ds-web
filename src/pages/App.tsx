@@ -21,7 +21,19 @@ function App() {
       />
       {changelogOpen && (
         <Modal title={t('navbar.changelog')} onClose={() => setChangelogOpen(false)}>
-          <p className="modal-empty">{t('modal.changelogEmpty')}</p>
+          <div className="modal-changelog">
+            <h2>{t('changelog.UserChange')}</h2>
+            <ul>{t('changelog.itemPaper')}</ul>
+            <ul>{t('changelog.itemBed')}</ul>
+            <ul>{t('changelog.itemScrolls')}</ul>
+            <h2>{t('changelog.devChange')}</h2>
+            <ul>{t('changelog.itemRefactor')}</ul>
+            <ul>{t('changelog.versionning')}</ul>
+            <ul>{t('changelog.network')}</ul>
+            <ul>{t('changelog.JSONparsing')}</ul>
+            <ul>{t('changelog.CICD')}</ul>
+            <ul>{t('changelog.ssl')}</ul>
+          </div>
         </Modal>
       )}
       {roadmapOpen && (
